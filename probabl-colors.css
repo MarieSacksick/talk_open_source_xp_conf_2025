@@ -1,0 +1,25 @@
+/* Probabl colors for Quarto Reveal.js presentation */
+
+/* Titles - Sea Buckthorn */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    color: #F68D2E;
+}
+
+/* Body text - Persian Blue */
+.reveal {
+    color: #1E22AA;
+}
+
+/* Ensure links are visible */
+.reveal a {
+    color: #F68D2E;
+}
+
+.reveal a:hover {
+    color: #1E22AA;
+}

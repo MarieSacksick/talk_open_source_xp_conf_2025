@@ -1,0 +1,147 @@
+---
+title: "Skore"
+title-block-banner: true
+date: 2025-12-11
+subtitle: "L’excellence scientifique et projet ML tout en un, une nouvelle étoile dans la sk-alaxie"
+author: "Marie Sacksick"
+author-title: "Product Engineer"
+institute: "Probabl, WiMLDS Paris."
+format:
+    revealjs:
+        slide-number: c/t
+        show-slide-number: all
+        preview-links: auto
+        embed-resources: false
+        transition: slide
+        theme: simple
+        css: probabl-colors.css
+        logo: img/blue_logo_probabl.png
+        footer: "https://github.com/MarieSacksick/talk_open_source_xp_conf_2025"
+incremental: false
+params: 
+    version: "base"
+---
+
+## Some context about the scikit-learn {auto-animate="true"}
+
+![](img/logo_sklearn.png)
+
+::: {.notes}
+1.3 million repositories using scikit-learn on github
+vs 800 thousands on pytorch
+vs 500 thousands on tensorflow
+Those are deep learning packages
+There is no real competition for scikit-learn.
+Scikit-learn set the standard API.
+:::
+
+## Towards an end-to-end data science ecosystem {auto-animate="true"}
+
+::: {style="text-align: center; margin-bottom: -1em;"}
+![](img/Logo_Skore_Light.png){width=200}
+:::
+
+::: {style="text-align: center; margin-bottom: -1em;"}
+![](img/horizontal_curly_brace.png)
+:::
+
+::: {.r-hstack style="gap: 3em; margin-bottom: -1em;"}
+::: {data-id="box1"}
+![](img/logo_skrub.png){width=200}
+:::
+
+::: {data-id="box2"}
+![](img/logo_sklearn.png){width=200}
+:::
+
+::: {data-id="box3"}
+![](img/logo_skops.png){width=200}
+:::
+:::
+
+::: {style="text-align: center; margin-bottom: -1em;"}
+![](img/long_arrow.png)  
+From data source to model deployment
+:::
+
+
+
+## about probabl
+
+### Probabl
+
+The official home of scikit-learn expertise
+
+**4** Locations
+(3 FR, 1 DE)
+
+**8** Top scikit-learn
+core-devs are in the team
+
+### Marie Sacksick
+
+Product Engineer
+
+Co-organizer of Women in Machine Learning and Data Science
+
+
+## 
+
+
+## Vision
+
+::: {.incremental}
+
+- Develop tooling to create data science artifacts
+- Help at following good practices for the problem at hand
+- Help at the collaboration to carry on data science project
+
+:::
+
+## Roadmap
+
+::: {.incremental}
+
+- Cover multiple aspects of the data science life cycles: data, model, etc.
+- Help at creating artifacts dedicated to the problem at hand and the model
+- Reduce the complexity related to code
+
+:::
+
+
+## Wrap-up
+
+::: {.incremental}
+
+- Provide tools to evaluate predictive models
+- Make some internal magic to reduce user friction
+- Allow for persistence of artifacts
+
+:::
+
+
+
+
+
+
+
+## Scanning slide! (and Q&A)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Join us
+
+![](img/qrcode_joinus.png)
+
+:::
+
+::: {.column width="50%"}
+### Link to skore repository
+
+![](img/qrcode_skore_github.png)
+:::
+
+<!-- https://qrcodecreator.com/dashboard -->
+
+::::

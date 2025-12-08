@@ -1,0 +1,4 @@
+"quarto-cli"
+"skore"
+"skore-local-project"
+"skore-hub-project"
