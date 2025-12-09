@@ -89,6 +89,11 @@ Co-organizer of Women in Machine Learning and Data Science
 
 ## 
 ```{python}
+import skore
+skore.set_config(show_progress=False)
+```
+
+```{python}
 #| echo: true
 #| output-location: slide
 import sklearn
@@ -147,7 +152,7 @@ lr_est_rep.help()
 ```{python}
 #| echo: true
 #| classes: scrollable
-lr_est_rep.metrics.summarize()
+lr_est_rep.metrics.summarize().frame()
 ```
 
 ## 
@@ -168,7 +173,10 @@ def business_loss(y_true_list, y_pred_list):
     
     return loss
 
-lr_est_rep.metrics.custom_metric(metric_function=business_loss, response_method="predict")
+lr_est_rep.metrics.custom_metric(
+    metric_function=business_loss, 
+    response_method="predict"
+)
 ```
 
 ## 
@@ -239,7 +247,9 @@ comp_report.help()
 ```{python}
 #| echo: true
 #| classes: scrollable
-comp_report.metrics.summarize().frame()
+comp_report.metrics.summarize(
+    metric = business_loss
+).frame()
 ```
 
 ## Vision
