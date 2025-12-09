@@ -85,8 +85,162 @@ Product Engineer
 Co-organizer of Women in Machine Learning and Data Science
 
 
+# Let's dig into a use-case!
+
+## 
+```{python}
+#| echo: true
+#| output-location: slide
+import sklearn
+
+X, y = sklearn.datasets.fetch_california_housing(
+                    return_X_y = True, 
+                    as_frame = True)
+X.describe()
+```
+ 
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.histplot(data=y)
+plt.show()
+```
+ 
+
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+from skore import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+```
+
 ## 
 
+```{python}
+#| echo: true
+from skore import EstimatorReport
+from sklearn.linear_model import LinearRegression
+
+lr_est_rep = EstimatorReport(
+                        LinearRegression(),
+                        X_train=X_train,
+                        y_train=y_train,
+                        X_test=X_test,
+                        y_test=y_test
+                    )
+```
+
+## A helper to guide the usage
+
+```{python}
+#| echo: true
+#| classes: scrollable
+lr_est_rep.help()
+```
+
+## 
+```{python}
+#| echo: true
+#| classes: scrollable
+lr_est_rep.metrics.summarize()
+```
+
+## 
+
+```{python}
+#| echo: true
+
+def business_loss(y_true_list, y_pred_list):
+    loss = 0
+    for y_true_, y_pred_ in zip(y_true_list, y_pred_list):
+        ### if under the market: 100% loss for me
+        if y_true_ > y_pred_:
+            loss = loss + float(y_true_ - y_pred_)
+        ### If I'm above the market, I will waste some time to sell.
+        ### Each month costs me 2k, and every month, I lower the price by 10k
+        else: 
+            loss = loss + float(2*(y_pred_-y_true_)/10)
+    
+    return loss
+
+lr_est_rep.metrics.custom_metric(metric_function=business_loss, response_method="predict")
+```
+
+## 
+```{python}
+#| echo: true
+from skore import EstimatorReport
+from sklearn.ensemble import HistGradientBoostingRegressor
+
+hist_est_rep = EstimatorReport(
+                        HistGradientBoostingRegressor(),
+                        X_train=X_train,
+                        y_train=y_train,
+                        X_test=X_test,
+                        y_test=y_test
+                    )
+```
+
+## 
+```{python}
+#| echo: true
+hist_est_rep.metrics.summarize().frame()
+```
+
+
+## 
+```{python}
+#| echo: true
+from skore import CrossValidationReport
+
+hist_cv_rep = CrossValidationReport(
+                        HistGradientBoostingRegressor(),
+                        X = X,
+                        y = y
+                    )
+
+lr_cv_rep = CrossValidationReport(
+                        LinearRegression(),
+                        X = X,
+                        y = y
+                    )
+```
+
+## 
+```{python}
+#| echo: true
+hist_cv_rep.metrics.summarize().frame()
+```
+
+
+
+## 
+```{python}
+#| echo: true
+from skore import ComparisonReport
+comp_report = ComparisonReport(
+            reports= {"histogram": hist_cv_rep, "linear_reg": lr_cv_rep}
+    )
+```
+
+##
+```{python}
+#| echo: true
+#| classes: scrollable
+comp_report.help()
+```
+
+##
+```{python}
+#| echo: true
+#| classes: scrollable
+comp_report.metrics.summarize().frame()
+```
 
 ## Vision
 
@@ -118,11 +272,6 @@ Co-organizer of Women in Machine Learning and Data Science
 - Allow for persistence of artifacts
 
 :::
-
-
-
-
-
 
 
 ## Scanning slide! (and Q&A)
