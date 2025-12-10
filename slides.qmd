@@ -306,14 +306,24 @@ from skore import CrossValidationReport
 hist_cv_rep = CrossValidationReport(
                         HistGradientBoostingRegressor(random_state=1),
                         X = X,
-                        y = y
+                        y = y,
+                        splitter=KFold(shuffle=True)
                     )
 
 lr_cv_rep = CrossValidationReport(
                         LinearRegression(),
                         X = X,
-                        y = y
+                        y = y,
+                        splitter=KFold(shuffle=True)
                     )
+```
+
+## 
+
+```{python}
+#| echo: true
+#| classes: scrollable
+hist_cv_rep.help()
 ```
 
 ## 
