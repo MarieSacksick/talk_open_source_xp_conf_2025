@@ -72,17 +72,17 @@ From data source to model deployment
 
 The official home of scikit-learn expertise
 
-**4** Locations
-(3 FR, 1 DE)
+**8** Open source source developers
+Out of 30 employees
 
-**8** Top scikit-learn
-core-devs are in the team
+**7** librairies  
+(scikit-learn, skrub, skops, imbalanced-learn, hazardous, fairlearn & joblib)
 
 ### Marie Sacksick
 
 Product Engineer
 
-Co-organizer of Women in Machine Learning and Data Science
+Co-organizer of Women in Machine Learning and Data Science Paris
 
 
 # Let's dig into a use-case!
@@ -91,19 +91,24 @@ Co-organizer of Women in Machine Learning and Data Science
 ```{python}
 import skore
 skore.set_config(show_progress=False)
+# to avoid a conflict with quarto and a bug, 
+# we cannot show the progress bar
 ```
 
 ```{python}
 #| echo: true
-#| output-location: slide
 import sklearn
 
 X, y = sklearn.datasets.fetch_california_housing(
                     return_X_y = True, 
                     as_frame = True)
-X.describe()
 ```
- 
+
+```{python}
+y = y*100000
+# to rescale to "normal" prices
+```
+
 ## 
 ```{python}
 #| echo: true
@@ -115,6 +120,13 @@ sns.histplot(data=y)
 plt.show()
 ```
  
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+X.describe()
+```
+ 
 
 ## 
 ```{python}
@@ -122,6 +134,20 @@ plt.show()
 #| output-location: fragment
 from skore import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y)
+```
+
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+from skore import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+                X, y, random_state=1, shuffle=False)
+```
+
+```{python}
+print(f"There are {len(y_train)} examples in the training set")
+print(f"There are {len(y_test)} examples in the testing set")
 ```
 
 ## 
@@ -140,7 +166,7 @@ lr_est_rep = EstimatorReport(
                     )
 ```
 
-## A helper to guide the usage
+## 
 
 ```{python}
 #| echo: true
@@ -151,7 +177,6 @@ lr_est_rep.help()
 ## 
 ```{python}
 #| echo: true
-#| classes: scrollable
 lr_est_rep.metrics.summarize().frame()
 ```
 
@@ -163,20 +188,25 @@ lr_est_rep.metrics.summarize().frame()
 def business_loss(y_true_list, y_pred_list):
     loss = 0
     for y_true_, y_pred_ in zip(y_true_list, y_pred_list):
-        ### if under the market: 100% loss for me
+        # if under the market: 100% loss for me
         if y_true_ > y_pred_:
             loss = loss + float(y_true_ - y_pred_)
-        ### If I'm above the market, I will waste some time to sell.
-        ### Each month costs me 2k, and every month, I lower the price by 10k
+        # If I'm above the market, I will waste some time to sell.
+        # Each month costs me 2k, 
+        # and every month, I lower the price by 10k
         else: 
             loss = loss + float(2*(y_pred_-y_true_)/10)
     
     return loss
 
-lr_est_rep.metrics.custom_metric(
-    metric_function=business_loss, 
-    response_method="predict"
-)
+result = lr_est_rep.metrics.custom_metric(
+            metric_function=business_loss, 
+            response_method="predict"
+        )
+```
+
+```{python}
+print(f"By using this model, the loss estimated on the test set is {round(result/1000000, 3)}M$")
 ```
 
 ## 
@@ -186,7 +216,7 @@ from skore import EstimatorReport
 from sklearn.ensemble import HistGradientBoostingRegressor
 
 hist_est_rep = EstimatorReport(
-                        HistGradientBoostingRegressor(),
+                        HistGradientBoostingRegressor(random_state=1),
                         X_train=X_train,
                         y_train=y_train,
                         X_test=X_test,
@@ -207,7 +237,7 @@ hist_est_rep.metrics.summarize().frame()
 from skore import CrossValidationReport
 
 hist_cv_rep = CrossValidationReport(
-                        HistGradientBoostingRegressor(),
+                        HistGradientBoostingRegressor(random_state=1),
                         X = X,
                         y = y
                     )

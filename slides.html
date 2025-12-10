@@ -259,11 +259,12 @@ From data source to model deployment</p>
 <h2>about probabl</h2>
 <h3 id="probabl">Probabl</h3>
 <p>The official home of scikit-learn expertise</p>
-<p><strong>4</strong> Locations (3 FR, 1 DE)</p>
-<p><strong>8</strong> Top scikit-learn core-devs are in the team</p>
+<p><strong>8</strong> Open source source developers Out of 30 employees</p>
+<p><strong>7</strong> librairies<br>
+(scikit-learn, skrub, skops, imbalanced-learn, hazardous, fairlearn &amp; joblib)</p>
 <h3 id="marie-sacksick">Marie Sacksick</h3>
 <p>Product Engineer</p>
-<p>Co-organizer of Women in Machine Learning and Data Science</p>
+<p>Co-organizer of Women in Machine Learning and Data Science Paris</p>
 </section>
 <section>
 <section id="lets-dig-into-a-use-case" class="title-slide slide level1 center">
@@ -272,18 +273,40 @@ From data source to model deployment</p>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<div id="9585b44a" class="cell" data-execution_count="2">
+<div id="9bea8c3e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> sklearn</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>X, y <span class="op">=</span> sklearn.datasets.fetch_california_housing(</span>
 <span id="cb1-4"><a href=""></a>                    return_X_y <span class="op">=</span> <span class="va">True</span>, </span>
-<span id="cb1-5"><a href=""></a>                    as_frame <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb1-6"><a href=""></a>X.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href=""></a>                    as_frame <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-
 </section>
-<section id="section-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="14">
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div id="3789ead1" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href=""></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>sns.histplot(data<span class="op">=</span>y)</span>
+<span id="cb2-5"><a href=""></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-5-output-1.png" width="825" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<div id="b99ce14f" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>X.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -407,32 +430,15 @@ From data source to model deployment</p>
 
 </div>
 </div>
-</div></section><section id="section-1" class="slide level2">
-<h2></h2>
-<div id="a535653a" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href=""></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a>sns.histplot(data<span class="op">=</span>y)</span>
-<span id="cb2-5"><a href=""></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment" data-execution_count="3">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/cell-4-output-1.png" width="825" height="429"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
-<div id="5a626f53" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> train_test_split</span>
-<span id="cb3-2"><a href=""></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="16947e67" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> train_test_split</span>
+<span id="cb4-2"><a href=""></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment" data-execution_count="4">
+<div class="cell fragment" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #008080; text-decoration-color: #008080">╭────────────────────────────── RandomStateUnsetWarning ───────────────────────────────╮</span>
 <span style="color: #008080; text-decoration-color: #008080">│</span><span style="color: #ffaf00; text-decoration-color: #ffaf00"> We recommend setting the parameter `random_state`. This will ensure the              </span><span style="color: #008080; text-decoration-color: #008080">│</span>
@@ -452,26 +458,32 @@ From data source to model deployment</p>
 </pre>
 </div>
 </div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div id="c8173a6b" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> EstimatorReport</span>
-<span id="cb4-2"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>lr_est_rep <span class="op">=</span> EstimatorReport(</span>
-<span id="cb4-5"><a href=""></a>                        LinearRegression(),</span>
-<span id="cb4-6"><a href=""></a>                        X_train<span class="op">=</span>X_train,</span>
-<span id="cb4-7"><a href=""></a>                        y_train<span class="op">=</span>y_train,</span>
-<span id="cb4-8"><a href=""></a>                        X_test<span class="op">=</span>X_test,</span>
-<span id="cb4-9"><a href=""></a>                        y_test<span class="op">=</span>y_test</span>
-<span id="cb4-10"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="406b98a8" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 15480 examples in the training set
+There are 5160 examples in the testing set</code></pre>
+</div>
 </div>
 </section>
-<section id="a-helper-to-guide-the-usage" class="slide level2">
-<h2>A helper to guide the usage</h2>
-<div id="b9d4aeb2" class="cell scrollable" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>lr_est_rep.<span class="bu">help</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div id="c2c921a0" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> EstimatorReport</span>
+<span id="cb6-2"><a href=""></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a>lr_est_rep <span class="op">=</span> EstimatorReport(</span>
+<span id="cb6-5"><a href=""></a>                        LinearRegression(),</span>
+<span id="cb6-6"><a href=""></a>                        X_train<span class="op">=</span>X_train,</span>
+<span id="cb6-7"><a href=""></a>                        y_train<span class="op">=</span>y_train,</span>
+<span id="cb6-8"><a href=""></a>                        X_test<span class="op">=</span>X_test,</span>
+<span id="cb6-9"><a href=""></a>                        y_test<span class="op">=</span>y_test</span>
+<span id="cb6-10"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div id="736594ef" class="cell scrollable" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a>lr_est_rep.<span class="bu">help</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #ffaf00; text-decoration-color: #ffaf00">╭──────────────────── </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">Tools to diagnose estimator LinearRegression</span><span style="color: #ffaf00; text-decoration-color: #ffaf00"> ────────────────────╮</span>
 <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> EstimatorReport                                                                      <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
@@ -517,11 +529,11 @@ From data source to model deployment</p>
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2">
+<section id="section-6" class="slide level2">
 <h2></h2>
-<div id="66594f3d" class="cell scrollable" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>lr_est_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div id="2d01c336" class="cell scrollable" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>lr_est_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -551,19 +563,19 @@ From data source to model deployment</p>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">R²</th>
-<td>0.602260</td>
+<td>0.599561</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">RMSE</th>
-<td>0.731873</td>
+<td>72786.315574</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Fit time (s)</th>
-<td>0.002280</td>
+<td>0.003759</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Predict time (s)</th>
-<td>0.000693</td>
+<td>0.001340</td>
 </tr>
 </tbody>
 </table>
@@ -572,51 +584,53 @@ From data source to model deployment</p>
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div id="9ad04c56" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="kw">def</span> business_loss(y_true_list, y_pred_list):</span>
-<span id="cb7-2"><a href=""></a>    loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-3"><a href=""></a>    <span class="cf">for</span> y_true_, y_pred_ <span class="kw">in</span> <span class="bu">zip</span>(y_true_list, y_pred_list):</span>
-<span id="cb7-4"><a href=""></a>        <span class="co">### if under the market: 100% loss for me</span></span>
-<span id="cb7-5"><a href=""></a>        <span class="cf">if</span> y_true_ <span class="op">&gt;</span> y_pred_:</span>
-<span id="cb7-6"><a href=""></a>            loss <span class="op">=</span> loss <span class="op">+</span> <span class="bu">float</span>(y_true_ <span class="op">-</span> y_pred_)</span>
-<span id="cb7-7"><a href=""></a>        <span class="co">### If I'm above the market, I will waste some time to sell.</span></span>
-<span id="cb7-8"><a href=""></a>        <span class="co">### Each month costs me 2k, and every month, I lower the price by 10k</span></span>
-<span id="cb7-9"><a href=""></a>        <span class="cf">else</span>: </span>
-<span id="cb7-10"><a href=""></a>            loss <span class="op">=</span> loss <span class="op">+</span> <span class="bu">float</span>(<span class="dv">2</span><span class="op">*</span>(y_pred_<span class="op">-</span>y_true_)<span class="op">/</span><span class="dv">10</span>)</span>
-<span id="cb7-11"><a href=""></a>    </span>
-<span id="cb7-12"><a href=""></a>    <span class="cf">return</span> loss</span>
-<span id="cb7-13"><a href=""></a></span>
-<span id="cb7-14"><a href=""></a>lr_est_rep.metrics.custom_metric(</span>
-<span id="cb7-15"><a href=""></a>    metric_function<span class="op">=</span>business_loss, </span>
-<span id="cb7-16"><a href=""></a>    response_method<span class="op">=</span><span class="st">"predict"</span></span>
-<span id="cb7-17"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>1626.6868526823775</code></pre>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div id="f5c66285" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> EstimatorReport</span>
-<span id="cb9-2"><a href=""></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> HistGradientBoostingRegressor</span>
-<span id="cb9-3"><a href=""></a></span>
-<span id="cb9-4"><a href=""></a>hist_est_rep <span class="op">=</span> EstimatorReport(</span>
-<span id="cb9-5"><a href=""></a>                        HistGradientBoostingRegressor(),</span>
-<span id="cb9-6"><a href=""></a>                        X_train<span class="op">=</span>X_train,</span>
-<span id="cb9-7"><a href=""></a>                        y_train<span class="op">=</span>y_train,</span>
-<span id="cb9-8"><a href=""></a>                        X_test<span class="op">=</span>X_test,</span>
-<span id="cb9-9"><a href=""></a>                        y_test<span class="op">=</span>y_test</span>
-<span id="cb9-10"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
 <section id="section-7" class="slide level2">
 <h2></h2>
-<div id="3a131721" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>hist_est_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div id="563fdac0" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="kw">def</span> business_loss(y_true_list, y_pred_list):</span>
+<span id="cb9-2"><a href=""></a>    loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-3"><a href=""></a>    <span class="cf">for</span> y_true_, y_pred_ <span class="kw">in</span> <span class="bu">zip</span>(y_true_list, y_pred_list):</span>
+<span id="cb9-4"><a href=""></a>        <span class="co">### if under the market: 100% loss for me</span></span>
+<span id="cb9-5"><a href=""></a>        <span class="cf">if</span> y_true_ <span class="op">&gt;</span> y_pred_:</span>
+<span id="cb9-6"><a href=""></a>            loss <span class="op">=</span> loss <span class="op">+</span> <span class="bu">float</span>(y_true_ <span class="op">-</span> y_pred_)</span>
+<span id="cb9-7"><a href=""></a>        <span class="co">### If I'm above the market, I will waste some time to sell.</span></span>
+<span id="cb9-8"><a href=""></a>        <span class="co">### Each month costs me 2k, and every month, I lower the price by 10k</span></span>
+<span id="cb9-9"><a href=""></a>        <span class="cf">else</span>: </span>
+<span id="cb9-10"><a href=""></a>            loss <span class="op">=</span> loss <span class="op">+</span> <span class="bu">float</span>(<span class="dv">2</span><span class="op">*</span>(y_pred_<span class="op">-</span>y_true_)<span class="op">/</span><span class="dv">10</span>)</span>
+<span id="cb9-11"><a href=""></a>    </span>
+<span id="cb9-12"><a href=""></a>    <span class="cf">return</span> loss</span>
+<span id="cb9-13"><a href=""></a></span>
+<span id="cb9-14"><a href=""></a>result <span class="op">=</span> lr_est_rep.metrics.custom_metric(</span>
+<span id="cb9-15"><a href=""></a>            metric_function<span class="op">=</span>business_loss, </span>
+<span id="cb9-16"><a href=""></a>            response_method<span class="op">=</span><span class="st">"predict"</span></span>
+<span id="cb9-17"><a href=""></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="0746681b" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-stdout">
+<pre><code>By using this model, the loss estimated on the test set is 163.307M$</code></pre>
+</div>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<div id="138f3ff9" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> EstimatorReport</span>
+<span id="cb11-2"><a href=""></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> HistGradientBoostingRegressor</span>
+<span id="cb11-3"><a href=""></a></span>
+<span id="cb11-4"><a href=""></a>hist_est_rep <span class="op">=</span> EstimatorReport(</span>
+<span id="cb11-5"><a href=""></a>                        HistGradientBoostingRegressor(random_state<span class="op">=</span><span class="dv">1</span>),</span>
+<span id="cb11-6"><a href=""></a>                        X_train<span class="op">=</span>X_train,</span>
+<span id="cb11-7"><a href=""></a>                        y_train<span class="op">=</span>y_train,</span>
+<span id="cb11-8"><a href=""></a>                        X_test<span class="op">=</span>X_test,</span>
+<span id="cb11-9"><a href=""></a>                        y_test<span class="op">=</span>y_test</span>
+<span id="cb11-10"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div id="a3162a23" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>hist_est_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -646,19 +660,19 @@ From data source to model deployment</p>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">R²</th>
-<td>0.832281</td>
+<td>0.836989</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">RMSE</th>
-<td>0.475256</td>
+<td>46439.747578</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Fit time (s)</th>
-<td>0.328218</td>
+<td>0.279045</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Predict time (s)</th>
-<td>0.010636</td>
+<td>0.008467</td>
 </tr>
 </tbody>
 </table>
@@ -667,29 +681,29 @@ From data source to model deployment</p>
 </div>
 </div>
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-10" class="slide level2">
 <h2></h2>
-<div id="6950c919" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> CrossValidationReport</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a>hist_cv_rep <span class="op">=</span> CrossValidationReport(</span>
-<span id="cb11-4"><a href=""></a>                        HistGradientBoostingRegressor(),</span>
-<span id="cb11-5"><a href=""></a>                        X <span class="op">=</span> X,</span>
-<span id="cb11-6"><a href=""></a>                        y <span class="op">=</span> y</span>
-<span id="cb11-7"><a href=""></a>                    )</span>
-<span id="cb11-8"><a href=""></a></span>
-<span id="cb11-9"><a href=""></a>lr_cv_rep <span class="op">=</span> CrossValidationReport(</span>
-<span id="cb11-10"><a href=""></a>                        LinearRegression(),</span>
-<span id="cb11-11"><a href=""></a>                        X <span class="op">=</span> X,</span>
-<span id="cb11-12"><a href=""></a>                        y <span class="op">=</span> y</span>
-<span id="cb11-13"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="87673a40" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> CrossValidationReport</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>hist_cv_rep <span class="op">=</span> CrossValidationReport(</span>
+<span id="cb13-4"><a href=""></a>                        HistGradientBoostingRegressor(random_state<span class="op">=</span><span class="dv">1</span>),</span>
+<span id="cb13-5"><a href=""></a>                        X <span class="op">=</span> X,</span>
+<span id="cb13-6"><a href=""></a>                        y <span class="op">=</span> y</span>
+<span id="cb13-7"><a href=""></a>                    )</span>
+<span id="cb13-8"><a href=""></a></span>
+<span id="cb13-9"><a href=""></a>lr_cv_rep <span class="op">=</span> CrossValidationReport(</span>
+<span id="cb13-10"><a href=""></a>                        LinearRegression(),</span>
+<span id="cb13-11"><a href=""></a>                        X <span class="op">=</span> X,</span>
+<span id="cb13-12"><a href=""></a>                        y <span class="op">=</span> y</span>
+<span id="cb13-13"><a href=""></a>                    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="section-9" class="slide level2">
+<section id="section-11" class="slide level2">
 <h2></h2>
-<div id="bdc9a591" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>hist_cv_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div id="51edb687" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>hist_cv_rep.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -729,23 +743,23 @@ From data source to model deployment</p>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">R²</th>
-<td>0.701082</td>
-<td>0.035225</td>
+<td>0.697862</td>
+<td>0.036158</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">RMSE</th>
-<td>0.611796</td>
-<td>0.048032</td>
+<td>61455.158420</td>
+<td>3811.815561</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Fit time (s)</th>
-<td>0.286126</td>
-<td>0.011769</td>
+<td>0.299965</td>
+<td>0.021194</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Predict time (s)</th>
-<td>0.006480</td>
-<td>0.001098</td>
+<td>0.005553</td>
+<td>0.000329</td>
 </tr>
 </tbody>
 </table>
@@ -754,25 +768,112 @@ From data source to model deployment</p>
 </div>
 </div>
 </section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb13-2"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> ComparisonReport</span>
-<span id="cb13-3"><a href=""></a>comp_report <span class="op">=</span> ComparisonReport(</span>
-<span id="cb13-4"><a href=""></a>            reports<span class="op">=</span> {<span class="st">"histogram"</span>: hist_cv_rep, <span class="st">"linear_reg"</span>: lr_cv_rep}</span>
-<span id="cb13-5"><a href=""></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb14-2"><a href=""></a><span class="co">#| classes: scrollable</span></span>
-<span id="cb14-3"><a href=""></a>comp_report.<span class="bu">help</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
 <section id="section-12" class="slide level2">
 <h2></h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb15-2"><a href=""></a><span class="co">#| classes: scrollable</span></span>
-<span id="cb15-3"><a href=""></a>comp_report.metrics.summarize().frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5ccade1f" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="im">from</span> skore <span class="im">import</span> ComparisonReport</span>
+<span id="cb15-2"><a href=""></a>comp_report <span class="op">=</span> ComparisonReport(</span>
+<span id="cb15-3"><a href=""></a>            reports<span class="op">=</span> {<span class="st">"histogram"</span>: hist_cv_rep, <span class="st">"linear_reg"</span>: lr_cv_rep}</span>
+<span id="cb15-4"><a href=""></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<div id="765c5ffc" class="cell scrollable" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>comp_report.<span class="bu">help</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="color: #ffaf00; text-decoration-color: #ffaf00">╭──────────────────────────── </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">Tools to compare estimators</span><span style="color: #ffaf00; text-decoration-color: #ffaf00"> ─────────────────────────────╮</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ComparisonReport                                                                     <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ├── <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">.metrics</span>                                                                         <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   ├── .prediction_error(...)         - Plot the prediction error of a regression   <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   │   model.                                                                       <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   ├── .r2(...)               <span style="color: #008080; text-decoration-color: #008080">(↗︎)</span>     - Compute the R² score.                       <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   ├── .rmse(...)             <span style="color: #ffaf00; text-decoration-color: #ffaf00">(↘︎)</span>     - Compute the root mean squared error.        <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   ├── .timings(...)                  - Get all measured processing times related   <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   │   to the different estimators.                                                 <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   ├── .custom_metric(...)            - Compute a custom metric.                    <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   └── .summarize(...)                - Report a set of metrics for the estimators. <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ├── <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">.feature_importance</span>                                                              <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ├── .cache_predictions(...)            - Cache the predictions for sub-estimators    <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   reports.                                                                         <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ├── .clear_cache(...)                  - Clear the cache.                            <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> ├── .get_predictions(...)              - Get predictions from the underlying         <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> │   reports.                                                                         <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> └── <span style="color: #008080; text-decoration-color: #008080; font-weight: bold">Attributes</span>                                                                       <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>     ├── .n_jobs                        - Number of jobs to run in parallel           <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>     ├── .pos_label                     - No description available                    <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>     └── .reports_                      - The compared reports                        <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>                                                                                      <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>                                                                                      <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> Legend:                                                                              <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span> <span style="color: #008080; text-decoration-color: #008080">(↗︎)</span> higher is better <span style="color: #ffaf00; text-decoration-color: #ffaf00">(↘︎)</span> lower is better                                             <span style="color: #ffaf00; text-decoration-color: #ffaf00">│</span>
+<span style="color: #ffaf00; text-decoration-color: #ffaf00">╰──────────────────────────────────────────────────────────────────────────────────────╯</span>
+</pre>
+</div>
+</div>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<div id="db44f309" class="cell scrollable" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>comp_report.metrics.summarize(</span>
+<span id="cb17-2"><a href=""></a>    metric <span class="op">=</span> business_loss</span>
+<span id="cb17-3"><a href=""></a>).frame()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">mean</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">std</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Estimator</th>
+<th data-quarto-table-cell-role="th">histogram</th>
+<th data-quarto-table-cell-role="th">linear_reg</th>
+<th data-quarto-table-cell-role="th">histogram</th>
+<th data-quarto-table-cell-role="th">linear_reg</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Metric</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">business_loss</th>
+<td>1.090931e+08</td>
+<td>1.348166e+08</td>
+<td>3.418483e+07</td>
+<td>3.180420e+07</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 <section id="vision" class="slide level2">
 <h2>Vision</h2>
