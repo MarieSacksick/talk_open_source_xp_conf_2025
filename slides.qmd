@@ -72,42 +72,305 @@ From data source to model deployment
 
 The official home of scikit-learn expertise
 
-**4** Locations
-(3 FR, 1 DE)
+**8** Open source source developers
+Out of 30 employees
 
-**8** Top scikit-learn
-core-devs are in the team
+**7** librairies  
+(scikit-learn, skrub, skops, imbalanced-learn, hazardous, fairlearn & joblib)
 
 ### Marie Sacksick
 
 Product Engineer
 
-Co-organizer of Women in Machine Learning and Data Science
+Co-organizer of Women in Machine Learning and Data Science Paris
+
+
+# Let's dig into a use-case!
+
+## 
+```{python}
+import skore
+skore.set_config(show_progress=False)
+# to avoid a conflict with quarto and a bug, 
+# we cannot show the progress bar
+```
+
+```{python}
+#| echo: true
+import sklearn
+
+X, y = sklearn.datasets.fetch_california_housing(
+                    return_X_y = True, 
+                    as_frame = True)
+```
+
+```{python}
+y = y*100000
+# to rescale to "normal" prices
+```
+
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.histplot(data=y)
+plt.show()
+```
+ 
+## 
+```{python}
+#| echo: true
+#| output-location: fragment
+X.describe()
+```
+ 
+
+## 
+
+```{python}
+#| echo: true
+#| output-location: fragment
+from skore import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+```
+
+::: {.fragment}
+```{python}
+print("\n")
+print(f"There are {len(y_train)} examples in the training set.")
+print(f"There are {len(y_test)} examples in the testing set.")
+```
+:::
 
 
 ## 
 
+```{python}
+#| echo: true
+from skore import EstimatorReport
+from sklearn.linear_model import LinearRegression
 
-## Vision
+lr_est_rep = EstimatorReport(
+                        LinearRegression(),
+                        X_train=X_train,
+                        y_train=y_train,
+                        X_test=X_test,
+                        y_test=y_test
+                    )
+```
+
+## 
+
+```{python}
+#| echo: true
+#| classes: scrollable
+lr_est_rep.help()
+```
+
+## 
+```{python}
+#| echo: true
+lr_est_rep.metrics.summarize().frame()
+```
+
+## 
+
+```{python}
+#| echo: true
+
+def business_loss(y_true_list, y_pred_list):
+    loss = 0
+    for y_true_, y_pred_ in zip(y_true_list, y_pred_list):
+        # if under the market: 100% loss for me
+        if y_true_ > y_pred_:
+            loss = loss + float(y_true_ - y_pred_)
+        # If I'm above the market, I will waste some time to sell.
+        # Each month costs me 2k, 
+        # and every month, I lower the price by 10k
+        else: 
+            loss = loss + float(2*(y_pred_-y_true_)/10)
+    return loss
+
+result = lr_est_rep.metrics.custom_metric(
+            metric_function=business_loss, 
+            response_method="predict"
+        )
+```
+
+```{python}
+print(f"By using the linear regression model, the loss estimated on the test set is {round(result/1000000, 3)}M$")
+```
+
+## 
+```{python}
+#| echo: true
+from skore import EstimatorReport
+from sklearn.ensemble import HistGradientBoostingRegressor
+
+hist_est_rep = EstimatorReport(
+                        HistGradientBoostingRegressor(random_state=4),
+                        X_train=X_train,
+                        y_train=y_train,
+                        X_test=X_test,
+                        y_test=y_test
+                    )
+```
+
+## 
+```{python}
+#| echo: true
+hist_est_rep.metrics.summarize().frame()
+```
+
+## 
+
+```{python}
+#| echo: true
+result = hist_est_rep.metrics.custom_metric(
+        metric_function=business_loss, 
+        response_method="predict"
+    )
+```
+
+```{python}
+print(f"By using the HGBR model, the loss estimated on the test set is {round(result/1000000, 3)}M$")
+```
+
+## A short word on CrossValidation
+
+```{python}
+# more or less copy-pasted from sklearn docs
+# https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Patch
+from sklearn.model_selection import KFold
+
+rng = np.random.RandomState(1338)
+cmap_cv = plt.cm.coolwarm
+n_splits = 5
+n_points = 100
+X_plot = rng.randn(n_points, 10)
+
+
+def plot_cv_indices(cv, X, ax, n_splits):
+    """Create a sample plot for indices of a cross-validation object."""
+    for ii, (tr, tt) in enumerate(cv.split(X)):
+        indices = np.array([np.nan] * len(X))
+        indices[tt] = 1
+        indices[tr] = 0
+
+        ax.scatter(
+            range(len(indices)),
+            [ii + 0.5] * len(indices),
+            c=indices,
+            marker="_",
+            lw=10,
+            cmap=cmap_cv,
+            vmin=-0.2,
+            vmax=1.2,
+        )
+
+    ax.set(
+        yticks=np.arange(n_splits) + 0.5,
+        yticklabels=list(range(n_splits)),
+        xlabel="Sample index",
+        ylabel="CV iteration",
+        ylim=[n_splits + 0.2, -0.2],
+        xlim=[0, n_points],
+    )
+    ax.set_title("{}".format(type(cv).__name__), fontsize="xx-large")
+    return ax
+
+
+cv = KFold(n_splits)
+fig, ax = plt.subplots()
+plot_cv_indices(cv, X_plot, ax, n_splits)
+ax.legend(
+    [Patch(color=cmap_cv(0.8)), Patch(color=cmap_cv(0.02))],
+    ["Testing set", "Training set"],
+    loc=(1.02, 0.8),
+    fontsize="xx-large"
+)
+plt.tight_layout()
+```
+
+## 
+```{python}
+#| echo: true
+from skore import CrossValidationReport
+
+hist_cv_rep = CrossValidationReport(
+                        HistGradientBoostingRegressor(random_state=1),
+                        X = X,
+                        y = y,
+                        splitter=KFold(shuffle=True)
+                    )
+
+lr_cv_rep = CrossValidationReport(
+                        LinearRegression(),
+                        X = X,
+                        y = y,
+                        splitter=KFold(shuffle=True)
+                    )
+```
+
+## 
+
+```{python}
+#| echo: true
+#| classes: scrollable
+hist_cv_rep.help()
+```
+
+## 
+```{python}
+#| echo: true
+hist_cv_rep.metrics.summarize().frame()
+```
+
+
+
+## 
+```{python}
+#| echo: true
+from skore import ComparisonReport
+comp_report = ComparisonReport(
+            reports= {"histogram": hist_cv_rep, "linear_reg": lr_cv_rep}
+    )
+```
+
+##
+```{python}
+#| echo: true
+#| classes: scrollable
+comp_report.help()
+```
+
+##
+```{python}
+#| echo: true
+#| classes: scrollable
+comp_report.metrics.summarize(
+    metric = business_loss
+).frame()
+```
+
+## Vision & wrap-up
 
 ::: {.incremental}
 
 - Develop tooling to create data science artifacts
 - Help at following good practices for the problem at hand
 - Help at the collaboration to carry on data science project
-
-:::
-
-## Roadmap
-
-::: {.incremental}
-
-- Cover multiple aspects of the data science life cycles: data, model, etc.
-- Help at creating artifacts dedicated to the problem at hand and the model
 - Reduce the complexity related to code
 
 :::
 
+<!--
 
 ## Wrap-up
 
@@ -118,12 +381,7 @@ Co-organizer of Women in Machine Learning and Data Science
 - Allow for persistence of artifacts
 
 :::
-
-
-
-
-
-
+-->
 
 ## Scanning slide! (and Q&A)
 
